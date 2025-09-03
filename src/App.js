@@ -123,7 +123,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route exact path="/about" element={<About mode={mode} />} />
-            <Route exact path="/Text" element={<Text heading="Enter the text" showAlert={showalert} mode={mode} />} />
+            <Route exact path="/Text/" element={<Text heading="Enter the text" showAlert={showalert} mode={mode} />} />
             <Route exact path="/service" element={<Services mode={mode} />} />
           </Routes>
         </div>

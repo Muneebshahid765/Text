@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-
+import "./Text.css"
 export default function Text(props) {
 
 useEffect(() => {
@@ -115,30 +115,79 @@ const clickdown = () => {
 
   return (
   <>
-  <div className="container" >
+    
+    <div className="container">
+      <div className="text-area-container">
+        <h1>{props.heading}</h1>
+        
+        <textarea 
+          id="myTextarea" 
+          className="custom-textarea" 
+          value={Text} 
+          onChange={handle} 
+          placeholder="Type something here..." 
+          rows={8} 
+          style={myfont}
+        />
+        
+        <div className="button-container">
+          <button disabled={Text.length===0} className="btn" onClick={clickup}>
+            Convert To Uppercase
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={clicklow}>
+            Convert To Lowercase
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={removeExtraSpaces}>
+            Remove extra space
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={clickcopy}>
+            Copy now
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={clickCapital}>
+            Capitalize
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={clickInverse}>
+            Inverse
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={clickdown}>
+            Download Now
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={bigfont}>
+            {font}
+          </button>
+          <button disabled={Text.length===0} className="btn" onClick={clickdel}>
+            Delete now
+          </button>
+        </div>
 
-    <div className="text-area-container">
-         <h1 >{props.heading}</h1>
-      <textarea id="myTextarea" className="custom-textarea" value={Text} onChange={handle} placeholder="Type something here..." rows={8} style={myfont }/>
-      <button disabled={Text.length===0} className="btn" onClick={clickup}>Convert To Uppercase</button>
-      <button disabled={Text.length===0} className="btn" onClick={clicklow}>Convert To Lowercase</button>
-     <button  disabled={Text.length===0} className="btn" onClick={removeExtraSpaces}>Remove extra space</button>
-      <button disabled={Text.length===0} className="btn" onClick={clickcopy}>Copy now</button>
-      <button disabled={Text.length===0} className="btn" onClick={clickCapital}>Capitalize</button>
-       <button disabled={Text.length===0} className="btn" onClick={clickInverse}>Inverse</button>
-        <button disabled={Text.length===0} className="btn" onClick={clickdown}>Download Now</button>
-         <button disabled={Text.length===0} className="btn" onClick={bigfont}>{font}</button>
-       <button disabled={Text.length===0} className="btn" onClick={clickdel}>Delete now</button>
-        <div className="text-area-container" >
         <h2>Text summary</h2>
-    <strong>Length :</strong>   <p >{wordCount} Word and {Text.length} Charcter</p>
-     <strong> Read Time :</strong>  <p>{Text.trim() === "" ? 0 : 0.008 * Text.trim().split(/\s+/).length} Minutes read </p>
-    <strong>Date :</strong>  <p >{date.getDate()+"-"+(date.getMonth() + 1)+"-"+date.getFullYear()}</p>
+        <div className="stats-grid">
+          <div className="stat-item">
+            <span className="stat-label">Length:</span>
+            <span className="stat-value">{wordCount} Word and {Text.length} Character</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-label">Read Time:</span>
+            <span className="stat-value">
+              {Text.trim() === "" ? 0 : 0.008 * Text.trim().split(/\s+/).length} Minutes read
+            </span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-label">Date:</span>
+            <span className="stat-value">
+              {date.getDate()+"-"+(date.getMonth() + 1)+"-"+date.getFullYear()}
+            </span>
+          </div>
+        </div>
+
         <h2>Preview</h2>
-        <p  id="text" style={myfont} > {Text}</p>   
+        <div className="preview-section">
+          <div className="preview-text" style={myfont}>
+            {Text || "Your text preview will appear here..."}
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </>
+  </>
   )
 }
