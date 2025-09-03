@@ -12,7 +12,7 @@ export default function Navbar(props) {
   return (
     <nav id="navbar" style={props.mode}>
       <ul>
-        <li><NavLink to="/" style={props.mode}  className={({ isActive }) => isActive ? 'active-link' : ''}>{title}</NavLink></li>
+        <li><NavLink to="/TextWebsite" style={props.mode}  className={({ isActive }) => isActive ? 'active-link' : ''}>{title}</NavLink></li>
         <li><NavLink to="/about" style={props.mode}  className={({ isActive }) => isActive ? 'active-link' : ''}>{about}</NavLink></li>
         <li><NavLink to="/service" style={props.mode}  className={({ isActive }) => isActive ? 'active-link' : ''}>{service}</NavLink></li>
       </ul>
