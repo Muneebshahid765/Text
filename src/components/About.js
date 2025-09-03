@@ -76,7 +76,7 @@ function About(props) {
       </main>
 
       <footer className="about-footer">
-        <Link to="/" className="back-button">← Back to TextUtils</Link>
+        <Link to="/Text/" className="back-button">← Back to TextUtils</Link>
         <p className="version-info">TextUtils v1.0.0</p>
       </footer>
     </div>
